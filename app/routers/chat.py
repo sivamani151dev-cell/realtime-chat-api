@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException, status, WebSocket, WebSoc
 from sqlalchemy.orm import Session
 from typing import List
 from app.database import get_db
-from app.models.Message import Message
-from app.models.Room import RoomMember
+from app.models.message import Message
+from app.models.room import RoomMember
 from app.models.user import User
 from app.schemas.message import MessageResponse
 from app.auth import decode_access_token
