@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+sqlalchemy
+alembic
+pyjwt
+python-dotenv
+python-multipart
+psycopg2-binary
+email-validator
+bcrypt
+redis
+websockets
+python-jose[cryptography]
+passlib[bcrypt]
