@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 from app.database import get_db
-from app.models.Room import Room, RoomMember
+from app.models.room import Room, RoomMember
 from app.schemas.room import RoomCreate, RoomResponse, RoomMemberResponse
 from app.auth import decode_access_token
 from fastapi.security import OAuth2PasswordBearer
