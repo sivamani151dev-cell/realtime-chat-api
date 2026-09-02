@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers.auth import router as auth_router
 from app.routers.rooms import router as rooms_router
@@ -10,7 +11,6 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -19,19 +19,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Routers
 app.include_router(auth_router)
 app.include_router(rooms_router)
 app.include_router(chat_router)
 
 @app.get("/")
 def root():
-    return {
-        "message": "Real-time Chat API",
-        "version": "1.0.0",
-        "docs": "/docs",
-        "status": "running"
-    }
+    return RedirectResponse(url="/docs")
 
 @app.get("/health")
 def health():
