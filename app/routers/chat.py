@@ -48,9 +48,8 @@ def get_messages(
 async def websocket_endpoint(
     websocket: WebSocket,
     room_id: int,
-    token: str,
-    db: Session = next(get_db())
-):
+    token: str):
+    db = next(get_db())
     # Authenticate user
     payload = decode_access_token(token)
     if not payload:

@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import auth, rooms, chat
+from app.routers.auth import router as auth_router
+from app.routers.rooms import router as rooms_router
+from app.routers.chat import router as chat_router
 
 app = FastAPI(
     title="Real-time Chat API",
@@ -18,9 +20,9 @@ app.add_middleware(
 )
 
 # Routers
-app.include_router(auth.router)
-app.include_router(rooms.router)
-app.include_router(chat.router)
+app.include_router(auth_router)
+app.include_router(rooms_router)
+app.include_router(chat_router)
 
 @app.get("/")
 def root():
